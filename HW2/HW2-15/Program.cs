@@ -7,6 +7,8 @@
 1 -> нет
 */
 
+
+
 int GetNumer(string message)
 {
     bool isCorrect = false;
