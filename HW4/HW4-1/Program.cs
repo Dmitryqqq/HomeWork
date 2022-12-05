@@ -21,7 +21,7 @@ Console.WriteLine($"В этом числе {NumLength(num)} знаков");
 int NumLength(double number) // Подсчет количества знаков в числе
 {   int len = 1;
     double num = Math.Abs(number);
-     while ( num/10 >= 1)
+     while ( num/10 < 1)
     { 
         len = len + 1;
         num = num / 10;
