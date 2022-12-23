@@ -27,13 +27,14 @@ void PrintArr(int [,] arr)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-            Console.Write(arr[i,j]+" ");
+            Console.Write("{0:d2}",arr[i,j]);
+            Console.Write(" ");
         }
         Console.WriteLine();
     }
 }
 
-int [,] InitArr(int [,]arr)
+/*int [,] InitArr(int [,]arr)
 {
 int [,] array = new int[,]
 {
@@ -44,10 +45,89 @@ int [,] array = new int[,]
 };
 return array;
 }
+*/
+int [,] InitArr(int [,]arr)
+{
+    int lenArr = arr.GetLength(0);
+    int turn = 1;
+    int count = 0;
+    int i = 0;
+    int j = -1;
+    bool l = false;
+    bool u = false;
+    bool d = false;
+    bool r = true;
+    int step = 0;
 
-int [,] matrix = new int[4,4];
+    while (lenArr-0.5*turn > 0)
+    {
+        if(r)
+        {
+            step = 0;
+            while (step < lenArr - 0.5*turn)
+            {
+                j = j +1;
+                count++;
+                arr[i,j] = count;
+                step++;
+            }
+            r = false;
+            d = true;
+            turn ++;
+        }
+        if(d)
+        {
+            step = 0;
+            while (step < lenArr - 0.5*turn)
+            {
+                i = i +1;
+                count++;
+                arr[i,j] = count;
+                step++;
+            }
+            d = false;
+            l = true;
+            turn ++;
+        }
+        if(l)
+        {
+            step = 0;
+            while (step < lenArr - 0.5*turn)
+            {
+                j = j - 1;
+                count++;
+                arr[i,j] = count;
+                step++;
+            }
+            l = false;
+            u = true;
+            turn ++;
+        }
+        if(u)
+        {
+            step = 0;
+            while (step < lenArr - 0.5*turn)
+            {
+                i = i -1;
+                count++;
+                arr[i,j] = count;
+                step++;
+            }
+            u = false;
+            r = true;
+            turn ++;
+        }
+
+
+
+    }
+    
+   return arr;   
+}
+
+int number = GetNumber("Введите размер квадратного массива ");
+int [,] matrix = new int[number,number];
 matrix = InitArr(matrix);
 PrintArr(matrix);
 
 
-// Сегодня день энергетикаю я 23 года в отрасли допишу позже, честно ))
