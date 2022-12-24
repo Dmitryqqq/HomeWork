@@ -34,18 +34,6 @@ void PrintArr(int [,] arr)
     }
 }
 
-/*int [,] InitArr(int [,]arr)
-{
-int [,] array = new int[,]
-{
-{01 ,02, 03, 04},
-{12 ,13, 14, 05},
-{11 ,16, 15, 06},
-{10 ,09, 08, 07}
-};
-return array;
-}
-*/
 int [,] InitArr(int [,]arr)
 {
     int lenArr = arr.GetLength(0);
@@ -53,16 +41,11 @@ int [,] InitArr(int [,]arr)
     int count = 0;
     int i = 0;
     int j = -1;
-    bool l = false;
-    bool u = false;
-    bool d = false;
-    bool r = true;
     int step = 0;
 
     while (lenArr-0.5*turn > 0)
     {
-        if(r)
-        {
+      
             step = 0;
             while (step < lenArr - 0.5*turn)
             {
@@ -71,12 +54,8 @@ int [,] InitArr(int [,]arr)
                 arr[i,j] = count;
                 step++;
             }
-            r = false;
-            d = true;
-            turn ++;
-        }
-        if(d)
-        {
+       
+            turn ++;    
             step = 0;
             while (step < lenArr - 0.5*turn)
             {
@@ -85,12 +64,8 @@ int [,] InitArr(int [,]arr)
                 arr[i,j] = count;
                 step++;
             }
-            d = false;
-            l = true;
-            turn ++;
-        }
-        if(l)
-        {
+        
+            turn ++;       
             step = 0;
             while (step < lenArr - 0.5*turn)
             {
@@ -99,12 +74,8 @@ int [,] InitArr(int [,]arr)
                 arr[i,j] = count;
                 step++;
             }
-            l = false;
-            u = true;
-            turn ++;
-        }
-        if(u)
-        {
+         
+            turn ++;      
             step = 0;
             while (step < lenArr - 0.5*turn)
             {
@@ -113,11 +84,8 @@ int [,] InitArr(int [,]arr)
                 arr[i,j] = count;
                 step++;
             }
-            u = false;
-            r = true;
-            turn ++;
-        }
-
+          
+            turn ++;  
 
 
     }
